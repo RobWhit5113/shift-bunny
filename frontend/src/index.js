@@ -3,18 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import {Provider} from 'react-redux'
 import {BrowserRouter} from'react-router-dom'
-import {configureStore} from'./store'
+import {restoreCSRF, csrfFetch} from './store/csrf'
 import App from './App';
+import configureStore from './store'
 
 const store = configureStore()
 
-if (ProcessingInstruction.env.NODE_ENV !== 'production'){
+if (process.env.NODE_ENV !== 'production') {
+  restoreCSRF();
+
+  window.csrfFetch = csrfFetch;
   window.store = store;
 }
 
 function Root() {
   return (
-    <Provider sotre={store}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
