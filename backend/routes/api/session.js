@@ -44,12 +44,15 @@ router.delete('/', (_req, res) => {
 })
 
 //restoring the session user
+
 router.get('/', restoreUser, (req,res) => {
-  const {user} = req;
+  console.log(req.body)
+  const {user} = req
+  // console.log('HEEEEERRRRREEEE', user)
   if(user) {
     return res.json({ user: user.toSafeObject()})
   } else {
-    return res.json()
+    return res.json({})
   }
 })
 
