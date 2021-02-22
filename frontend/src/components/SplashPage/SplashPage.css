@@ -1,3 +1,19 @@
 .splash {
   background-color: teal;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.whole-splash {
+  height: 1000px;
+}
+
+.buttons {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+body{
+  background-color: cornflowerblue;
 }

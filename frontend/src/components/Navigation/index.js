@@ -4,6 +4,7 @@ import {NavLink, useHistory} from 'react-router-dom'
 import ProfileButton from './ProfileButton'
 import LoginFormModal from '../LoginFormModal'
 import SignupFormModal from '../SignupFormModal'
+import DemoUser from '../DemoUser'
 import './Navigation.css'
 import * as sessionActions from "../../store/session";
 
@@ -31,16 +32,17 @@ const Navigation = ({isLoaded}) => {
       <>
         <LoginFormModal />
         <SignupFormModal />
-        <span className='span' type='submit' onClick={demoSubmit}> Demo</span> 
+        <DemoUser />
       </>
     );
   }
   return (
     <div className='demo'>
-          {isLoaded && sessionLinks}
-
+      <div className='header'>
+            {isLoaded && sessionLinks}
+      </div>
     </div>
-  )
-}
+    )
+  }
 
 export default Navigation
