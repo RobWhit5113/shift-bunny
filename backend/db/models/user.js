@@ -39,9 +39,11 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     scopes: {
+      //need to be used explicitly when querying
       currentUser: {
         attributes: { exclude: ['hashedPassword'] },
       },
+      //need to be used explicitly when querying
       loginUser: {
         attributes: {},
       },

@@ -20,5 +20,13 @@
 
 #modal-content {
   position: absolute;
-  background-color:white;
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 450px;
+    margin: 5em auto;
+    border-radius: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
