@@ -11,15 +11,6 @@ import * as sessionActions from "../../store/session";
 
 const Navigation = ({isLoaded}) => {
   const sessionUser = useSelector(state => state.session.user)
-  const dispatch = useDispatch()
-  const history = useHistory()
-  
-    
-  async function demoSubmit(e) {
-    e.preventDefault()
-    await dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }));
-    history.push('/home')
-  }
 
   let sessionLinks;
   if(sessionUser){

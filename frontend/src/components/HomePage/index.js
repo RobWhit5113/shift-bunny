@@ -1,5 +1,8 @@
 import {useSelector} from 'react-redux'
 import {Redirect} from 'react-router-dom'
+import UpcomingShifts from '../UpcomingShifts'
+import NewShiftFormModal from '../NewShiftFormModal'
+import RecentShifters from '../RecentShifters'
 import './HomePage.css'
 
 function HomePage() {
@@ -11,7 +14,10 @@ function HomePage() {
 
   return (
   <>
-    <h1>Home sweet Home</h1>
+    <h1>{`${sessionUser.username}'s dashboard`}</h1>
+    <NewShiftFormModal />
+    <UpcomingShifts />
+    <RecentShifters />
   </>
   )
   

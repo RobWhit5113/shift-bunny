@@ -14,24 +14,25 @@ const SignupForm = () => {
   const [errors, setErrors] = useState([])
   const history = useHistory()
 
-    const handleSubmit = e => {
+    const handleSubmit = async(e) => {
     e.preventDefault();
     if(password === confirmPassword){
     setErrors([])
-    // history.push('/home')
-    return dispatch(sessionActions.signup({username, email, password}))
+    await dispatch(sessionActions.signup({username, email, password}))
       .catch(async(res) => {
         const data = await res.json()
         if (data && data.errors) setErrors(data.errors)
       })
+      history.push('/home')
+    }else{
+      return setErrors(['Confirm Password field must be the same as the Password field'])
     }
-    return setErrors(['Confirm Password field must be the same as the Password field'])
-  }
+    }
   return (
     <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
+        <ul>
+          {errors.map((error, idx) => <li className='error' key={idx}>{error}</li>)}
+        </ul>
       <p align='center' className='sign'>Sign Up</p>
       <div className='sign'>
         <input
