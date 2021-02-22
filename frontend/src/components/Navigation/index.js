@@ -14,11 +14,10 @@ const Navigation = ({isLoaded}) => {
   const history = useHistory()
   
     
-  function demoSubmit(e) {
+  async function demoSubmit(e) {
     e.preventDefault()
-    dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }));
+    await dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }));
     history.push('/home')
-    // console.log('button function')
   }
 
   let sessionLinks;
@@ -30,19 +29,16 @@ const Navigation = ({isLoaded}) => {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal className='button'/>
+        <LoginFormModal />
         <SignupFormModal />
-        <button type='submit' onClick={demoSubmit}> Demo</button>
+        <span className='span' type='submit' onClick={demoSubmit}> Demo</span> 
       </>
     );
   }
   return (
     <div className='demo'>
-      {/* <ul>
-        <li> */}
           {isLoaded && sessionLinks}
-        {/* </li>
-      </ul> */}
+
     </div>
   )
 }

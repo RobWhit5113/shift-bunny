@@ -14,14 +14,14 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
-    history.push('/home')
-    return dispatch(sessionActions.login({ credential, password }))
+    await dispatch(sessionActions.login({ credential, password }))
     .catch(
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       }
-    );
+      );
+      history.push('/home')
   };
 
   return (

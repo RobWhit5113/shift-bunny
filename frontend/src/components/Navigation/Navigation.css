@@ -1,5 +1,11 @@
 .demo {
   border: solid black ;
-  display: flex;
+  display: block;
   justify-content: flex-start;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.span{
+  background-color: chartreuse;
 }
