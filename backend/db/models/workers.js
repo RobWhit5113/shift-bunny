@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   Worker.associate = function(models) {
     // associations can be defined here
     Worker.hasMany(models.Review, {foreignKey: 'worker_id'})
-    Worker.hasMany(models.Shifts, {foreignKey: 'worker_id'})
+    Worker.hasMany(models.Shift, {foreignKey: 'worker_id'})
     Worker.belongsTo(models.Shift_type, {foreignKey: "shift_type_id"})
   };
   return Worker;

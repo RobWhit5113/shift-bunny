@@ -8,6 +8,8 @@ const SignupForm = () => {
     const dispatch = useDispatch()
   // const sessionUser = useSelector(state => state.session.user);
   const [username, setUsername] = useState('')
+  const [first_name, setFirstName] = useState('')
+  const [last_name, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [password, setPassword] = useState('')
@@ -35,6 +37,22 @@ const SignupForm = () => {
         </ul>
       <p align='center' className='sign'>Sign Up</p>
       <div className='sign'>
+        <input
+          placeholder='Enter First Name'
+          className='input'
+          type="text"
+          value={first_name}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        <input
+          placeholder='Enter Last Name'
+          className='input'
+          type="text"
+          value={last_name}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
         <input
           placeholder='Enter Username'
           className='input'
