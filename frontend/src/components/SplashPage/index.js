@@ -11,9 +11,9 @@ const SplashPage = () => {
     <div className='whole-splash'>
       <div className='title'>
         <h1>Welcome to Shift-Bunny!</h1>
-        <img src='/images/shift-bunny-logo.png'/>
-      <div className='logo'>
       </div>
+      <div className='logo'>
+        <img src='/images/shift-bunny-logo.png'/>
       </div>  
       <div className='buttons'>
         <LoginFormModal />

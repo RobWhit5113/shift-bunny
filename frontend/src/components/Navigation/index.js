@@ -30,7 +30,12 @@ const Navigation = ({isLoaded}) => {
   return (
     <div className='demo'>
       <div className='header'>
+        <div className='bunny'>
+          <img className='bunnyImg' src='/images/bunny-only-logo.png' />
+        </div>
+        <div className='navLinks'>
             {isLoaded && sessionLinks}
+        </div>
       </div>
     </div>
     )

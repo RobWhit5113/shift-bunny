@@ -1,7 +1,7 @@
 .demo {
   border: solid black ;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 5px;
 }
 
@@ -21,8 +21,27 @@
   padding-right: 5px;
 }
 
+.bunnyImg{
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+}
 
+.bunny {
+  display: flex;
+  justify-content: center;
+  border: solid black;
+}
 
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between
+}
 
+.navLinks{
+  display: flex;
+  align-content: center;
+}
 
 
