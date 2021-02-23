@@ -33,7 +33,16 @@ module.exports = (sequelize, DataTypes) => {
       completed: {
         type: DataTypes.BOOLEAN
       },
-  }, {});
+  },
+   {});
+   Shift.findAllShiftsForUser = async function(user_id){
+     //works
+     const shifts = await Shift.findAll({
+       where: {
+        user_id: user_id
+       }})
+       return shifts
+   }
   Shift.associate = function(models) {
     // associations can be defined here
     Shift.belongsTo(models.User, {foreignKey: "user_id"})

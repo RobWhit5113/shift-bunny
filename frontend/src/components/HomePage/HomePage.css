@@ -1,0 +1,7 @@
+.big3Components{
+  display: flex;
+  border-right: solid black;
+  border-left: solid black;
+  justify-content: space-between;
+  
+}

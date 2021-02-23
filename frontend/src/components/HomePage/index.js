@@ -15,9 +15,11 @@ function HomePage() {
   return (
   <>
     <h1>{`${sessionUser.username}'s dashboard`}</h1>
-    <NewShiftFormModal />
-    <UpcomingShifts />
-    <RecentShifters />
+    <div className='big3Components'>
+      <NewShiftFormModal />
+      <UpcomingShifts />
+      <RecentShifters />
+    </div>
   </>
   )
   

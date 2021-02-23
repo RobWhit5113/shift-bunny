@@ -2,13 +2,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import {csrfFetch, restoreCSRF} from './csrf'
-
 import * as sessionActions from './session'; //part of csrf test
+import shiftsReducer from './shifts';
 
 
 
 const rootReducer = combineReducers({
-  session: sessionReducer
+  session: sessionReducer,
+  shift: shiftsReducer
 })
 
 let enhancer;
