@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createNewShift} from '../../store/shifts'
+import {getAllTypes} from '../../store/types'
 import {useHistory} from 'react-router-dom'
 
-const NewShiftForm = () => {
+const NewShiftForm = ({showModal, setShowModal}) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user)
@@ -18,9 +19,13 @@ const NewShiftForm = () => {
   const [description, setDescription] = useState('')
   const [completed, setCompleted] = useState(false)
   
+  useEffect(() => {
+    dispatch(getAllTypes())
+  }, [dispatch])
   
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setShowModal(!showModal)
 
     const payload = {
       name,

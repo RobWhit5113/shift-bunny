@@ -11,7 +11,8 @@ function NewShiftFormModal() {
     <span className='span' onClick={() => setShowModal(true)}>Create a New Shift!</span>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
-        <NewShiftForm />
+        <NewShiftForm showModal={showModal}
+                      setShowModal={setShowModal}/>
       </Modal>
     )}
   </>

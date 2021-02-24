@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import {csrfFetch, restoreCSRF} from './csrf'
 import * as sessionActions from './session'; //part of csrf test
 import shiftsReducer from './shifts';
+import typesReducer from './types'
 
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  shift: shiftsReducer
+  shift: shiftsReducer,
+  types: typesReducer
 })
 
 let enhancer;

@@ -8,6 +8,7 @@ import { Modal } from '../../context/Modal'
 
 function UpcomingShiftsModals() {
   let shiftsVals
+  let shiftEdit
   // let upcoming
   // const today = new Date()
   const [showModal, setShowModal] = useState(false)
@@ -15,7 +16,6 @@ function UpcomingShiftsModals() {
   const dispatch = useDispatch()
   let shifts = useSelector(state => state.shift.shifts)
   if (shifts){
-    console.log('here')
   shiftsVals = Object.values(shifts)
   // upcoming = shiftsVals.filter(shift => shift.start_date > today)
   
@@ -37,14 +37,18 @@ function UpcomingShiftsModals() {
         <h2 className='upcoming-title'>Upcoming Shifts:</h2>
           
             {shiftsVals && shiftsVals.map((shift) => (
-              <div className='shift-tiles' onClick={() => setShowModal(true)} key={shift.id}>
+              <div className='shift-tiles' onClick={(e) => {
+                shiftEdit = e.target.value
+                setShowModal(true)
+              }} 
+                
+                key={shift.id}>
                 {shift.name} 
-                --- 
                 </div>
             ))}
             {showModal && (
               <Modal onClose={() => setShowModal(false)}>
-                <EditShiftForm />
+                <EditShiftForm shiftEdit={shiftEdit}/>
               </Modal>
             )}
           

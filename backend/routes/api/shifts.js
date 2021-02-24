@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
 const{ setTokenCookie, restoreUser} = require('../../utils/auth')
-const{User, Shift} = require('../../db/models')
+const{User, Shift, Shift_Type} = require('../../db/models')
 const {handleValidationErrors} = require('../../utils/validation')
 const router = express.Router();
 
@@ -23,8 +23,11 @@ router.get('/', restoreUser, asyncHandler(async(req,res) => {
 
    }))
 
+   //get
+
+
 // create new shift for the user
-router.post('/', restoreUser, asyncHandler(async(req,res) => {
+router.post('/', asyncHandler(async(req,res) => {
    const {
       name,
       user_id,
