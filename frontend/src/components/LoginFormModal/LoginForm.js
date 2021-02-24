@@ -19,20 +19,19 @@ function LoginForm() {
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-      }
-      );
+      });
       history.push('/home')
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
         <p align='center' className='sign'>Login</p>
           <div className='sign'>
+            <ul>
+              {errors.map((error, idx) => (
+                <span key={idx}>{error}</span>
+              ))}
+            </ul>
             <input
               placeholder='Enter Username'
               className='input'

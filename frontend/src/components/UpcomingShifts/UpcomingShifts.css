@@ -1,0 +1,22 @@
+.upcoming_shifts{
+  border: solid black;
+  display: grid;
+
+
+}
+
+.upcoming-title{
+  text-align: center;
+}
+
+.shift-tiles{
+  border: solid black;
+  padding: 5px;
+  display: grid;
+  
+}
+
+.shift-tiles:hover{
+  transform: scale(1.2);
+  box-shadow: 2px 2px 10px #000
+}

@@ -32,11 +32,11 @@ const SignupForm = () => {
     }
   return (
     <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li className='error' key={idx}>{error}</li>)}
-        </ul>
       <p align='center' className='sign'>Sign Up</p>
       <div className='sign'>
+        <ul>
+          {errors.map((error, idx) => <span className='error' key={idx}>{error}</span>)}
+        </ul>
         <input
           placeholder='Enter First Name'
           className='input'

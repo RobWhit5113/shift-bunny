@@ -9,8 +9,8 @@
 }
 .error {
     color: red;
-    position: fixed
-    
+    font-size: 12px;
+    text-align: center;
 }
 
 .input{

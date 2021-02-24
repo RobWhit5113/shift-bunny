@@ -25,7 +25,7 @@ const shiftsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SHIFTS:
       newState = Object.assign({}, state)
-      newState.shifts = action.payload
+      newState = action.payload
       return newState
     default:
       return state

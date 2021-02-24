@@ -9,10 +9,19 @@ const router = express.Router();
 
 router.get('/', restoreUser, asyncHandler(async(req,res) => {
   //works
+  // const date = new Date(year,month,day)
+  const {Op} = require('sequelize')
   const {user} = req
-  const shifts = await Shift.findAllShiftsForUser(user.id)
-  return res.json({shifts})
+  const shifts = await Shift.findAll({
+       where: {
+        // [Op.gt]: Date.now(),
+        user_id: user.id,
+       },
+      
+      })
+      return res.json({shifts})  
 
-}))
+   }))
+
 
 module.exports = router
