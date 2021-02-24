@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux'
 import {Redirect} from 'react-router-dom'
-import UpcomingShifts from '../UpcomingShifts'
+import UpcomingShiftsModals from '../UpcomingShiftsModals'
 import NewShiftFormModal from '../NewShiftFormModal'
 import RecentShifters from '../RecentShifters'
 import './HomePage.css'
@@ -17,7 +17,7 @@ function HomePage() {
     <h1>{`${sessionUser.username}'s dashboard`}</h1>
     <div className='big3Components'>
       <NewShiftFormModal />
-      <UpcomingShifts />
+      <UpcomingShiftsModals />
       <RecentShifters />
     </div>
   </>

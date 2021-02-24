@@ -1,12 +1,16 @@
 import * as sessionActions from '../../store/shifts'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
+import {useState} from 'react'
+import NewShiftForm from '../NewShiftFormModal/NewShiftForm'
 import './UpcomingShifts.css'
+import { Modal } from '../../context/Modal'
 
-function UpcomingShifts() {
+function UpcomingShiftsModals() {
   let shiftsVals
-  let upcoming
-  const today = new Date()
+  // let upcoming
+  // const today = new Date()
+  const [showModal, setShowModal] = useState(false)
 
   const dispatch = useDispatch()
   let shifts = useSelector(state => state.shift.shifts)
@@ -15,11 +19,11 @@ function UpcomingShifts() {
   shiftsVals = Object.values(shifts)
   // upcoming = shiftsVals.filter(shift => shift.start_date > today)
   
-  let days = []
-  let times = []
-  let dates = shiftsVals.map(shift => (shift.start_date))
-  dates.forEach(date => days.push(date.split('T')[0]))
-  console.log(times)
+  // let days = []
+  // let times = []
+  // let dates = shiftsVals.map(shift => (shift.start_date))
+  // dates.forEach(date => days.push(date.split('T')[0]))
+  // console.log(times)
   }
 
   useEffect(() => {
@@ -33,17 +37,20 @@ function UpcomingShifts() {
         <h2 className='upcoming-title'>Upcoming Shifts:</h2>
           
             {shiftsVals && shiftsVals.map((shift) => (
-              <div className='shift-tiles' key={shift.id}>
+              <div className='shift-tiles' onClick={() => setShowModal(true)} key={shift.id}>
                 {shift.name} 
                 --- 
-                {shift.start_date}
-                ---
                 </div>
             ))}
+            {showModal && (
+              <Modal onClose={() => setShowModal(false)}>
+                <NewShiftForm />
+              </Modal>
+            )}
           
         </div>
     </>
   )
 }
 
-export default UpcomingShifts
+export default UpcomingShiftsModals
