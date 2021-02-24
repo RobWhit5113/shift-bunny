@@ -2,7 +2,7 @@ import * as sessionActions from '../../store/shifts'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {useState} from 'react'
-import NewShiftForm from '../NewShiftFormModal/NewShiftForm'
+import EditShiftForm from './EditShiftForm'
 import './UpcomingShifts.css'
 import { Modal } from '../../context/Modal'
 
@@ -44,7 +44,7 @@ function UpcomingShiftsModals() {
             ))}
             {showModal && (
               <Modal onClose={() => setShowModal(false)}>
-                <NewShiftForm />
+                <EditShiftForm />
               </Modal>
             )}
           

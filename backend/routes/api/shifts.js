@@ -23,5 +23,33 @@ router.get('/', restoreUser, asyncHandler(async(req,res) => {
 
    }))
 
+// create new shift for the user
+router.post('/', restoreUser, asyncHandler(async(req,res) => {
+   const {
+      name,
+      user_id,
+      worker_id,
+      shift_type_id,
+      start_date,
+      location,
+      duration,
+      description,
+      completed 
+   } = req.body
+
+   const newShift = await Shift.create({
+      name,
+      user_id, 
+      worker_id,
+      shift_type_id,
+      start_date,
+      location,
+      duration,
+      description,
+      completed
+   })
+   return res.json({newShift})
+}))
+
 
 module.exports = router
