@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Shift_type = sequelize.define('Shift_type', {
       type: {
       allowNull: false,
-      type: DataTypes.ENUM(['Bartender', 'Waiter/Waitress', 'Cleaner'])
+      type: DataTypes.ENUM(['Bartender', 'Server', 'Cleaner'])
     },
   }, {});
   Shift_type.associate = function(models) {

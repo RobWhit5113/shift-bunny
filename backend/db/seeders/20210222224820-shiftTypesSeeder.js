@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Shift_types', [
         {type: 'Bartender'},
-        {type: 'Waiter/Waitress'},
+        {type: 'Server'},
         {type: "Cleaner"},
     ], {});
     

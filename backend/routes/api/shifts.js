@@ -33,6 +33,7 @@ router.post('/', asyncHandler(async(req,res) => {
       user_id,
       worker_id,
       shift_type_id,
+      shift_type,
       start_date,
       location,
       duration,
@@ -40,11 +41,26 @@ router.post('/', asyncHandler(async(req,res) => {
       completed 
    } = req.body
 
+   let worker = worker_id.split('-')
+
+   console.log('>>>>>>>>>>>>>>>>>',shift_type)
+   
+   let newShiftTypeId = 0
+   if (shift_type === 'Bartender'){
+      newShiftTypeId = 1
+   }else if (shift_type === 'Server') {
+      newShiftTypeId = 2
+   } else if (shift_type === 'Cleaner'){
+      newShiftTypeId = 3
+   }
+
+
    const newShift = await Shift.create({
       name,
       user_id, 
-      worker_id,
-      shift_type_id,
+      worker_id: worker,
+      shift_type_id: newShiftTypeId,
+      shift_type: shift_type,
       start_date,
       location,
       duration,

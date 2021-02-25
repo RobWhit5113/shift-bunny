@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
       last_name: {
         type: DataTypes.STRING
       },
+      shift_type: {
+        allowNull: false,
+        type: DataTypes.ENUM(['Bartender', 'Server', 'Cleaner'])
+      },
       shift_type_id: {
         type: DataTypes.INTEGER,
         references: {model: "Shift_types"}

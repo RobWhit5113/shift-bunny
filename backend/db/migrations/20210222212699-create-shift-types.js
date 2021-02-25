@@ -10,7 +10,7 @@ module.exports = {
       },
       type: {
         allowNull: false,
-        type: Sequelize.ENUM(['Bartender', 'Waiter/Waitress', 'Cleaner'])
+        type: Sequelize.ENUM(['Bartender', 'Server', 'Cleaner'])
       },
       createdAt: {
         allowNull: false,
