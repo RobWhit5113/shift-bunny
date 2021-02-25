@@ -8,13 +8,13 @@ import { Modal } from '../../context/Modal'
 
 function UpcomingShiftsModals() {
   let shiftsVals
-  let shiftEdit
   // let upcoming
   // const today = new Date()
   const [showModal, setShowModal] = useState(false)
+  const [id, setId] = useState('')
 
   const dispatch = useDispatch()
-  let shifts = useSelector(state => state.shift.shifts)
+  let shifts = useSelector(state => state.shift)
   if (shifts){
   shiftsVals = Object.values(shifts)
   // upcoming = shiftsVals.filter(shift => shift.start_date > today)
@@ -30,25 +30,27 @@ function UpcomingShiftsModals() {
     shifts = dispatch(sessionActions.getAllShifts())
   }, [dispatch])
 
-
+  
+  let allShifts 
+  if(shiftsVals?.length > 0){
+    allShifts = shiftsVals.map((shift) => (
+      <div className='shift-tiles' id={shift.id} onClick={(e) => {
+        setId(e.target.id)
+        setShowModal(true)
+      }} 
+        
+        key={shift.id}>
+        {shift.name} 
+        </div>
+    ))}
   return (
     <>
       <div className='upcoming_shifts'>
         <h2 className='upcoming-title'>Upcoming Shifts:</h2>
-          
-            {shiftsVals && shiftsVals.map((shift) => (
-              <div className='shift-tiles' onClick={(e) => {
-                shiftEdit = e.target.value
-                setShowModal(true)
-              }} 
-                
-                key={shift.id}>
-                {shift.name} 
-                </div>
-            ))}
+          {allShifts}
             {showModal && (
               <Modal onClose={() => setShowModal(false)}>
-                <EditShiftForm shiftEdit={shiftEdit}/>
+                <EditShiftForm id={id}/>
               </Modal>
             )}
           

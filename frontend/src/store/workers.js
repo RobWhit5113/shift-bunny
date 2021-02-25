@@ -1,0 +1,37 @@
+import {csrfFetch} from './csrf'
+
+const GET_WORKERS = 'workers/getWorkers'
+
+const getWorkers = workers => {
+  return{
+    type: GET_WORKERS,
+    payload: workers
+  }
+}
+
+export const getAllWorkers = () => async(dispatch) => {
+  const response = await fetch('/api/workers')
+  const workers = await response.json()
+  dispatch(getWorkers(workers))
+}
+
+export const getRelWorkers = (shiftType) => async(dispatch) => {
+  const response = await fetch(`/api/workers/${shiftType}`)
+  const relWorkers = await response.json()
+  dispatch(getWorkers(relWorkers))
+}
+
+const initialState = {types: null}
+const workersReducer = (state= initialState, action) => {
+  let newState
+  switch(action.type) {
+    case GET_WORKERS:
+      newState = JSON.parse(JSON.stringify(state))
+      newState = action.payload
+      return newState
+    default:
+      return state
+  }
+}
+
+export default workersReducer

@@ -23,7 +23,12 @@ router.get('/', restoreUser, asyncHandler(async(req,res) => {
 
    }))
 
-   //get
+// get one shift 
+// router.get('/:id', asyncHandler(async(req,res) => {
+//    const shiftId = req.params.id
+//    const shift = await Shift.findByPk(shiftId)
+//    return res.json({shift})
+// }))
 
 
 // create new shift for the user
@@ -33,7 +38,7 @@ router.post('/', asyncHandler(async(req,res) => {
       user_id,
       worker_id,
       shift_type_id,
-      shift_type,
+      shift_Type,
       start_date,
       location,
       duration,
@@ -41,16 +46,17 @@ router.post('/', asyncHandler(async(req,res) => {
       completed 
    } = req.body
 
-   let worker = worker_id.split('-')
+   let worker = +worker_id.split('-')[0]
 
-   console.log('>>>>>>>>>>>>>>>>>',shift_type)
+
+   console.log('>>>>>>>>>>>>>>>>>',shift_Type)
    
    let newShiftTypeId = 0
-   if (shift_type === 'Bartender'){
+   if (shift_Type === 'Bartender'){
       newShiftTypeId = 1
-   }else if (shift_type === 'Server') {
+   }else if (shift_Type === 'Server') {
       newShiftTypeId = 2
-   } else if (shift_type === 'Cleaner'){
+   } else if (shift_Type === 'Cleaner'){
       newShiftTypeId = 3
    }
 
@@ -60,7 +66,7 @@ router.post('/', asyncHandler(async(req,res) => {
       user_id, 
       worker_id: worker,
       shift_type_id: newShiftTypeId,
-      shift_type: shift_type,
+      shift_type: shift_Type,
       start_date,
       location,
       duration,

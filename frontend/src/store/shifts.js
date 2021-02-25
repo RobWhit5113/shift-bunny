@@ -19,6 +19,7 @@ const newShift = shift => ({
 
 
 export const createNewShift = data => async (dispatch) => {
+  console.log('heeeeeeeeeeeer', data)
   const response = await csrfFetch('/api/shifts', {
     method: 'POST',
     headers: {
@@ -34,28 +35,38 @@ export const createNewShift = data => async (dispatch) => {
   }
 }
 
+// export const getOneShift = (id) => async(dispatch) => {
+//   const response = await fetch(`/api/shifts/${id}`)
+//   const shift = await response.json()
+
+//   dispatch(setShifts(shift))
+//   return response
+// }
+
 
 
 export const getAllShifts = () => async(dispatch) => {
-  const response = await csrfFetch('/api/shifts')
+  const response = await fetch('/api/shifts')
   const shifts = await response.json();
 
   dispatch(setShifts(shifts))
   return response
 }
 
-const initialState = {shifts: null}
+// const initialState = {shifts: null}
 
-const shiftsReducer = (state = initialState, action) => {
+const shiftsReducer = (state = {}, action) => {
   let newState
   switch (action.type) {
     case GET_SHIFTS:
       newState = Object.assign({}, state)
-      newState = action.payload
+      action.payload.shifts.forEach(shift => {
+        newState[shift.id] = shift
+      })
       return newState
     case NEW_SHIFT:
       newState = JSON.parse(JSON.stringify(state))
-      newState.shifts.push(action.payload)
+      newState[action.payload.id] = action.payload
       return newState
     default:
       return state
@@ -64,15 +75,8 @@ const shiftsReducer = (state = initialState, action) => {
 }
 export default shiftsReducer
 
-/*
-case ADD_PROJECT:
-      newState = Object.assign({}, state);
-      const newOwned = {
-        owned: [...newState.projects.owned, action.payload],
-      };
-      const temp = Object.assign({}, newState.projects, newOwned);
-      const copyState = Object.assign({}, newState, { projects: temp });
-      return copyState;
-
-
-*/
+      // newState = JSON.parse(JSON.stringify(state))
+      // action.payload.shifts.forEach(shift => {
+      //   newState[shift.id] = shift
+      // })
+      // return newState

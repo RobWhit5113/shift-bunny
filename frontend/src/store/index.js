@@ -5,13 +5,15 @@ import {csrfFetch, restoreCSRF} from './csrf'
 import * as sessionActions from './session'; //part of csrf test
 import shiftsReducer from './shifts';
 import typesReducer from './types'
+import workersReducer from './workers';
 
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   shift: shiftsReducer,
-  types: typesReducer
+  types: typesReducer,
+  workers: workersReducer
 })
 
 let enhancer;

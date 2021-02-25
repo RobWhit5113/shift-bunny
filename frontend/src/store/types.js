@@ -10,7 +10,7 @@ const shiftTypes = types => {
 }
 
 export const getAllTypes = () => async (dispatch) => {
-  const response = await csrfFetch('/api/types')
+  const response = await fetch('/api/types')
   const types = await response.json()
   dispatch(shiftTypes(types))
   // return response

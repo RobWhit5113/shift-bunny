@@ -1,15 +1,14 @@
 import {useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import {getOneShift} from '../../store/shifts'
 
-
-
-
-function EditShiftForm({shiftEdit}) {
-  console.log(shiftEdit)
+function EditShiftForm({id}) {
+  const dispatch = useDispatch()
+  const shift = useSelector((state) => state.shift[id])
   return (
     <form>
       <h1>Hello</h1>
-      <p>{shiftEdit}</p>
+      <p>{shift.name}</p>
     </form>
   
   )
