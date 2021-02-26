@@ -30,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.INTEGER
       },
+      cost: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+      },
       location: {
         allowNull: false,
         type: DataTypes.STRING

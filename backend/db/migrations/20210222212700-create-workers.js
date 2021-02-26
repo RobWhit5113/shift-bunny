@@ -22,6 +22,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.ENUM(['Bartender', 'Server', 'Cleaner'])
       },
+      cost: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

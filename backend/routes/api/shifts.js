@@ -56,6 +56,7 @@ router.post('/', asyncHandler(async(req,res) => {
       shift_Type,
       start_date,
       location,
+      cost,
       duration,
       description,
       completed 
@@ -82,6 +83,7 @@ router.post('/', asyncHandler(async(req,res) => {
       shift_type: shift_Type,
       start_date,
       location,
+      cost,
       duration,
       description,
       completed
@@ -103,6 +105,7 @@ router.put('/:id', asyncHandler(async (req,res) => {
       start_date,
       location,
       duration,
+      cost,
       description,
       completed 
    } = req.body
@@ -132,6 +135,7 @@ router.put('/:id', asyncHandler(async (req,res) => {
       start_date,
       location,
       duration,
+      cost,
       description,
       completed
    })

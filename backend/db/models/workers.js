@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         references: {model: "Shift_types"}
       },
+      cost: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+      },
   }, {});
   Worker.associate = function(models) {
     // associations can be defined here

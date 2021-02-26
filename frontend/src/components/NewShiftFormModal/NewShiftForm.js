@@ -12,11 +12,12 @@ const NewShiftForm = ({showModal, setShowModal}) => {
   const workers = useSelector((state) => state.workers.relWorkers)
 
   const [name, setName] = useState('')
-  const [shiftType, setShiftType] = useState('-Select Shift Type-')
+  const [shiftType, setShiftType] = useState('Bartender')
   const [worker, setWorker] = useState('')
   const [startDate, setStartDate] = useState('')
   const [location, setLocation] = useState('')
   const [duration, setDuration] = useState('')
+  const [cost, setCost] = useState('')
   const [description, setDescription] = useState('')
   const [completed, setCompleted] = useState(false)
   
@@ -42,6 +43,7 @@ const NewShiftForm = ({showModal, setShowModal}) => {
       shift_Type: shiftType,
       start_date: startDate,
       location,
+      cost,
       duration, 
       description,
       completed
@@ -87,6 +89,13 @@ const NewShiftForm = ({showModal, setShowModal}) => {
         required
         value={startDate}
         onChange={e => setStartDate(e.target.value)}
+      />
+      <input 
+        type='text'
+        placeholder='Maximum you want to pay per hour'
+        required
+        value={cost}
+        onChange={e => setCost(e.target.value)}
       />
       <textarea 
         type='text'

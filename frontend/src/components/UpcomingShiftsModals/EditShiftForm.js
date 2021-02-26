@@ -25,6 +25,7 @@ function EditShiftForm({id, showModal, setShowModal}) {
   const [startDate, setStartDate] = useState(shift?.start_date)
   const [location, setLocation] = useState(shift?.location)
   const [duration, setDuration] = useState(shift?.duration)
+  const [cost, setCost] = useState(shift?.cost)
   const [description, setDescription] = useState(shift?.description)
   const [completed, setCompleted] = useState(false)
 
@@ -43,6 +44,7 @@ function EditShiftForm({id, showModal, setShowModal}) {
       start_date: startDate,
       location,
       duration, 
+      cost,
       description,
       completed
     }
@@ -99,6 +101,13 @@ if(!shift){
         required
         value={startDate}
         onChange={e => setStartDate(e.target.value)}
+      />
+      <input 
+        type='text'
+        placeholder='Maximum you want to pay per hour'
+        required
+        value={cost}
+        onChange={e => setCost(e.target.value)}
       />
       <textarea 
         type='text'
