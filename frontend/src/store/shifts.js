@@ -2,6 +2,7 @@ import {csrfFetch} from './csrf'
 
 const GET_SHIFTS = 'shifts/getAllShifts'
 const NEW_SHIFT = 'shifts/createNewShift'
+const DELETE_SHIFT = 'shifts/deleteShift'
 
 
 const setShifts = (shifts) => {
@@ -16,15 +17,15 @@ const newShift = shift => ({
   payload: shift
 })
 
+const deleteShift = id => ({
+  type: DELETE_SHIFT,
+  payload: id
+})
 
 
 export const createNewShift = data => async (dispatch) => {
-  console.log('heeeeeeeeeeeer', data)
   const response = await csrfFetch('/api/shifts', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
     body: JSON.stringify(data)
   })
   if (response.ok) {
@@ -35,15 +36,29 @@ export const createNewShift = data => async (dispatch) => {
   }
 }
 
-// export const getOneShift = (id) => async(dispatch) => {
-//   const response = await fetch(`/api/shifts/${id}`)
-//   const shift = await response.json()
+export const editShift = data => async (dispatch) => {
+// console.log(data.name)
+const response = await csrfFetch(`/api/shifts/${data.id}`, {
+  method: 'PUT',
+  body: JSON.stringify(data)
+})
 
-//   dispatch(setShifts(shift))
-//   return response
-// }
+  if (response.ok) {
+    const shifts = await response.json()
+    dispatch(setShifts(shifts))
+  }
+}
 
-
+export const deleteOneShift = ({id}) => async(dispatch) => {
+  // console.log(id)
+  const response = await csrfFetch(`/api/shifts/${id}`,{
+  method: 'DELETE'
+  })
+  if(response.ok) {
+    const shifts = await response.json()
+    dispatch(setShifts(shifts))
+  }
+}
 
 export const getAllShifts = () => async(dispatch) => {
   const response = await fetch('/api/shifts')
@@ -53,13 +68,13 @@ export const getAllShifts = () => async(dispatch) => {
   return response
 }
 
-// const initialState = {shifts: null}
+
 
 const shiftsReducer = (state = {}, action) => {
   let newState
   switch (action.type) {
     case GET_SHIFTS:
-      newState = Object.assign({}, state)
+      newState = {}
       action.payload.shifts.forEach(shift => {
         newState[shift.id] = shift
       })
@@ -68,6 +83,10 @@ const shiftsReducer = (state = {}, action) => {
       newState = JSON.parse(JSON.stringify(state))
       newState[action.payload.id] = action.payload
       return newState
+    // case DELETE_SHIFT:
+    //   newState = JSON.parse(JSON.stringify(state))
+    //   delete newState[action.payload].shift
+    //   return newState
     default:
       return state
 

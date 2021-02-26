@@ -3,6 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {useState} from 'react'
 import EditShiftForm from './EditShiftForm'
+import {getAllWorkers} from '../../store/workers'
+import {getAllTypes} from '../../store/types'
 import './UpcomingShifts.css'
 import { Modal } from '../../context/Modal'
 
@@ -36,6 +38,8 @@ function UpcomingShiftsModals() {
     allShifts = shiftsVals.map((shift) => (
       <div className='shift-tiles' id={shift.id} onClick={(e) => {
         setId(e.target.id)
+        dispatch(getAllWorkers())
+        dispatch(getAllTypes())
         setShowModal(true)
       }} 
         
@@ -50,7 +54,7 @@ function UpcomingShiftsModals() {
           {allShifts}
             {showModal && (
               <Modal onClose={() => setShowModal(false)}>
-                <EditShiftForm id={id}/>
+                <EditShiftForm id={id} showModal={showModal} setShowModal={setShowModal}/>
               </Modal>
             )}
           

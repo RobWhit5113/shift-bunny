@@ -11,7 +11,6 @@ router.get('/', asyncHandler(async(req,res) => {
 
 router.get('/:shiftType', asyncHandler(async(req,res) => {
   const shift_type = req.params.shiftType
-  console.log('>>>>>>>>>>>>>>>>>>>',shift_type)
 
   const relWorkers = await Worker.findAll({ where: {shift_type}})
   // console.log(res.json(relWorkers))

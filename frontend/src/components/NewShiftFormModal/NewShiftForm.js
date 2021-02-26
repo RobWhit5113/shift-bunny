@@ -12,11 +12,11 @@ const NewShiftForm = ({showModal, setShowModal}) => {
   const workers = useSelector((state) => state.workers.relWorkers)
 
   const [name, setName] = useState('')
-  const [shiftType, setShiftType] = useState('Bartender')
+  const [shiftType, setShiftType] = useState('-Select Shift Type-')
   const [worker, setWorker] = useState('')
   const [startDate, setStartDate] = useState('')
   const [location, setLocation] = useState('')
-  const [duration, setDuration] = useState(0)
+  const [duration, setDuration] = useState('')
   const [description, setDescription] = useState('')
   const [completed, setCompleted] = useState(false)
   
@@ -46,7 +46,7 @@ const NewShiftForm = ({showModal, setShowModal}) => {
       description,
       completed
     }
-    const newShift = await dispatch(createNewShift(payload))
+    await dispatch(createNewShift(payload))
   }
   return (
     <form onSubmit={handleSubmit}>
