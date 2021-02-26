@@ -36,10 +36,10 @@ function UpcomingShiftsModals() {
   let allShifts 
   if(shiftsVals?.length > 0){
     allShifts = shiftsVals.map((shift) => (
-      <div className='shift-tiles' id={shift.id} onClick={(e) => {
+      <div className='shift-tiles' id={shift.id} onClick={async (e) => {
         setId(e.target.id)
-        dispatch(getAllWorkers())
-        dispatch(getAllTypes())
+        await dispatch(getAllWorkers())
+        await dispatch(getAllTypes())
         setShowModal(true)
       }} 
         

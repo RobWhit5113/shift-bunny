@@ -36,6 +36,7 @@ export const createNewShift = data => async (dispatch) => {
   }
 }
 
+
 export const editShift = data => async (dispatch) => {
 // console.log(data.name)
 const response = await csrfFetch(`/api/shifts/${data.id}`, {

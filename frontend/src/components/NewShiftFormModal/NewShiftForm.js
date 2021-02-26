@@ -115,8 +115,8 @@ const NewShiftForm = ({showModal, setShowModal}) => {
             <option key={worker.id}>{worker.id} - {worker.first_name} {worker.last_name}</option>
           ))}
         </select> 
-      <button type='submit'>Create Shift!</button>
       <button type='click' onClick={findShifters}>Find Shifters!</button>
+      <button type='submit'>Create Shift!</button>
       
     </form>
   )

@@ -1,14 +1,15 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {editShift, deleteOneShift, getAllShifts} from '../../store/shifts'
+import {editShift, deleteOneShift, getAllShifts, markComplete} from '../../store/shifts'
 import {useHistory, Redirect} from 'react-router-dom'
-
+import {getRelWorkers} from '../../store/workers'
+import './UpcomingShifts.css'
+import CurrentShifter from './CurrentShifter'
 
 
 
 function EditShiftForm({id, showModal, setShowModal}) {
   const dispatch = useDispatch()
-  const history = useHistory()
   const shift = useSelector((state) => state.shift[id])
   const workers = useSelector((state) => state.workers)
   const types = useSelector((state) => state.types.types)
@@ -18,15 +19,17 @@ function EditShiftForm({id, showModal, setShowModal}) {
 
   const [name, setName] = useState(shift?.name)
   const [shiftType, setShiftType] = useState(shift?.shift_type)
-  const [worker, setWorker] = useState(workers&& workers[shift?.worker_id])
+  const [worker, setWorker] = useState(workers && workers[shift?.worker_id])
   const [startDate, setStartDate] = useState(shift?.start_date)
   const [location, setLocation] = useState(shift?.location)
   const [duration, setDuration] = useState(shift?.duration)
   const [cost, setCost] = useState(shift?.cost)
   const [description, setDescription] = useState(shift?.description)
-  const [completed, setCompleted] = useState(false)
+  const [completed, setCompleted] = useState(shift?.completed)
 
-  console.log(worker)
+  //   const findShifters = async(e) => {
+  //   await dispatch(getRelWorkers(shiftType))
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -56,14 +59,15 @@ function EditShiftForm({id, showModal, setShowModal}) {
   }
   const handleComplete = async(e) => {
     e.preventDefault()
-    await setCompleted(true)
+    await setCompleted(!completed)
   }
 
 if(!shift){
   <Redirect to='/home'/>
-
 }
+
   return (
+  workers &&
     <form onSubmit={handleSubmit}>
       <input 
         type='text'
@@ -125,12 +129,17 @@ if(!shift){
         value={worker}
         onChange={e => setWorker(e.target.value)}>
           {workersArr && workersArr.map(worker => (
-            <option key={worker.id}>{worker.id} - {worker.first_name} {worker.last_name}</option>
+            <option key={worker.id}>{worker.id} - {worker.shift_type} - {worker.first_name} {worker.last_name}</option>
           ))}
         </select> 
-        <div>{`${worker?.first_name} ${worker?.last_name}`}</div>
+        {shift &&
+        
+        <CurrentShifter worker={worker}
+                        id={id}/>
+                        }
       <button type='click' onClick={handleDelete}> Cancel Shift </button>  
-      <button type='click' onClick={handleComplete} className={(shift.completed ? 'selected' : '')}>Mark completed</button> 
+      <button type='click' onClick={handleComplete} className={(completed ? 'selected' : '')}>Mark completed</button> 
+      {/* <button type='click' onClick={findShifters}>Find A New Shifter!</button> */}
       <button type='submit'>Save Changes Shift!</button>
     </form>
   )
