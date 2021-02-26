@@ -16,12 +16,9 @@ function EditShiftForm({id, showModal, setShowModal}) {
 
   const workersArr = Object.values(workers)
 
-  // if(!shift){
-  //   history.push('/home')
-  // }
   const [name, setName] = useState(shift?.name)
-  const [shiftType, setShiftType] = useState(shift?.shiftType)
-  const [worker, setWorker] = useState(shift?.worker_id)
+  const [shiftType, setShiftType] = useState(shift?.shift_type)
+  const [worker, setWorker] = useState(workers&& workers[shift?.worker_id])
   const [startDate, setStartDate] = useState(shift?.start_date)
   const [location, setLocation] = useState(shift?.location)
   const [duration, setDuration] = useState(shift?.duration)
@@ -29,7 +26,7 @@ function EditShiftForm({id, showModal, setShowModal}) {
   const [description, setDescription] = useState(shift?.description)
   const [completed, setCompleted] = useState(false)
 
-  
+  console.log(worker)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -56,6 +53,10 @@ function EditShiftForm({id, showModal, setShowModal}) {
     e.preventDefault()
     await dispatch(deleteOneShift({id}))
     await setShowModal(!showModal)
+  }
+  const handleComplete = async(e) => {
+    e.preventDefault()
+    await setCompleted(true)
   }
 
 if(!shift){
@@ -127,8 +128,10 @@ if(!shift){
             <option key={worker.id}>{worker.id} - {worker.first_name} {worker.last_name}</option>
           ))}
         </select> 
+        <div>{`${worker?.first_name} ${worker?.last_name}`}</div>
+      <button type='click' onClick={handleDelete}> Cancel Shift </button>  
+      <button type='click' onClick={handleComplete} className={(shift.completed ? 'selected' : '')}>Mark completed</button> 
       <button type='submit'>Save Changes Shift!</button>
-      <button type='click' onClick={handleDelete}> Delete Shift </button>   
     </form>
   )
 }

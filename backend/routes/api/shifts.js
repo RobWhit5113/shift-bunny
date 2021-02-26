@@ -17,8 +17,8 @@ router.get('/', restoreUser, asyncHandler(async(req,res) => {
         // [Op.gt]: Date.now(),
         user_id: user.id,
        },
-      
       })
+      console.log('>>>>>>>>>>>>>>>>>>>>>',shifts)
       return res.json({shifts})  
 
    }))

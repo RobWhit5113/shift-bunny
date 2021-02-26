@@ -24,7 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       start_date: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATEONLY,
+        // get: function() {
+        //   return moment(this.getDataValue('start_date')).format('MM-DD-YYYY')
+        // }
       },
       duration: {
         allowNull: false,
