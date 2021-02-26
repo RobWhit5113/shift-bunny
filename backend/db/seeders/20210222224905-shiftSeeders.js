@@ -12,6 +12,7 @@ module.exports = {
         shift_type: 'Bartender',
         start_date: '2021-02-25', 
         duration: 60,
+        location: '123 happy lane',
         description: 'We need someone to serve alcohol',
         completed: false
       },
@@ -23,6 +24,7 @@ module.exports = {
         shift_type: 'Server',
         start_date: '2021-02-25', 
         duration: 60,
+        location: '123 sad lane',
         description: 'We need someone to serve our guests',
         completed: false
       },
@@ -34,6 +36,7 @@ module.exports = {
         shift_type: 'Cleaner',
         start_date: '2021-02-25', 
         duration: 60,
+        location: '321 medium lane',
         description: 'We need someone to clean our mess',
         completed: false
       },
@@ -45,6 +48,7 @@ module.exports = {
         shift_type: 'Bartender',
         start_date: '2021-01-01', 
         duration: 90,
+        location: '456 happy lane',
         description: 'We need someone to serve alcohol',
         completed: true
       },
@@ -56,6 +60,7 @@ module.exports = {
         shift_type: 'Server',
         start_date: '2021-02-25', 
         duration: 90,
+        location: '456 sad lane',
         description: 'We need someone to serve our guests',
         completed: false
       },

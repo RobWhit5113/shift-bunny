@@ -37,6 +37,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      location: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       description: {
         allowNull: false,
         type: Sequelize.TEXT
