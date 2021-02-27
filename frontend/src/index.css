@@ -1,4 +1,6 @@
 /* TODO Add site wide styles */
-body{
-  background-color: brown;
+* {
+  font-family: 'Signika Negative', sans-serif;
+  box-sizing: border-box;
+  
 }

@@ -16,7 +16,7 @@ const DemoUser = () => {
   }
 
   return (
-    <span className='span' type='submit' onClick={demoSubmit}> Demo</span>
+    <span className='span' type='submit' onClick={demoSubmit}>demo</span>
   )
 }
 export default DemoUser

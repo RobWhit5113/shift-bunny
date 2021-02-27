@@ -1,5 +1,4 @@
 .splash {
-  background-color: teal;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -8,16 +7,44 @@
 .whole-splash {
   height: 1000px;
 }
+.title{
+  color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+}
 
 .buttons {
   padding: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 body{
-  background-color: cornflowerblue;
+  background-color: #12232E;
 }
-.logo{
+.logo-splash{
   display: flex;
   justify-content: center;
+}
+.span{
+  color: #f8f8ff;
+	font-size: 1.2em;
+}
+.span:hover{
+  color: #007CC7;
+}
+
+
+.signup-splash{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.demo-splash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h3{
+  text-decoration: underline;
+  color: #4DA8DA
 }

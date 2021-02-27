@@ -16,28 +16,29 @@ const Navigation = ({isLoaded}) => {
   if(sessionUser){
     sessionLinks = (
       //where we will build Nav bar for the home page
-      <ProfileButton user={sessionUser} />
+      <ul className='main-nav'>  
+        <ProfileButton user={sessionUser} />
+      </ul>
     )
   } else {
     sessionLinks = (
-      <>
-        <LoginFormModal />
-        <SignupFormModal />
-        <DemoUser />
-      </>
+      <ul className='main-nav'>
+        <li><LoginFormModal/></li>
+        {/* <li><SignupFormModal/></li>
+        <li><DemoUser /></li> */}
+      </ul>
     );
   }
   return (
-    <div className='demo'>
-      <div className='header'>
-        <div className='bunny'>
-          <img className='bunnyImg' src='/images/bunny-only-logo.png' />
-        </div>
-        <div className='navLinks'>
-            {isLoaded && sessionLinks}
-        </div>
+    
+    <header className='header'>
+      <div className='logo'>
+        <img className='bunnyImg' src='/images/bunny-only-logo.png' />
       </div>
-    </div>
+      <h2>shift-bunny</h2>
+          {isLoaded && sessionLinks}   
+    </header>
+    
     )
   }
 

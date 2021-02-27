@@ -1,7 +1,7 @@
 .sign{
     padding-top: 35px;
-    color: #30475e;
-    font-family: 'Ubuntu', sans-serif;
+    color: #12232E;
+    font-family: 'Signika Negative', sans-serif;
     font-weight: bold;
     font-size: 23px;
     align-items: center;
@@ -15,36 +15,36 @@
 
 .input{
     width: 76%;
-    color: rgb(38, 50, 56);
+    color: #12232E;
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
+    background: #f8f8ff;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
     outline: none;
     box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
+    border: 2px solid #203647;
     margin-bottom: 50px;
     margin-left: 46px;
     text-align: center;
     margin-bottom: 27px;
     align-items: center;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
 }
 
 .submit {
     cursor: pointer;
     border-radius: 5em;
-    color: rgb(38, 50, 56);
-    background: linear-gradient(to right, #8dcaff , #d8e8f3);
-    border: 0;
+    color: #f8f8ff;
+    background: linear-gradient(to right, #12232E , #4DA8DA);
+    border: 2px solid #203647;
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 10px;
     padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Signika Negative', sans-serif;
     margin-left: 35%;
     margin-bottom: 10px;
     font-size: 14px;

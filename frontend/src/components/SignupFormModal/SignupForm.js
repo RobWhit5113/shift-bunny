@@ -32,13 +32,13 @@ const SignupForm = () => {
     }
   return (
     <form onSubmit={handleSubmit}>
-      <p align='center' className='sign'>Sign Up</p>
+      <p align='center' className='sign'>sign up</p>
       <div className='sign'>
         <ul>
           {errors.map((error, idx) => <span className='error' key={idx}>{error}</span>)}
         </ul>
         <input
-          placeholder='Enter First Name'
+          placeholder='enter first name'
           className='input'
           type="text"
           value={first_name}
@@ -46,7 +46,7 @@ const SignupForm = () => {
           required
         />
         <input
-          placeholder='Enter Last Name'
+          placeholder='enter last name'
           className='input'
           type="text"
           value={last_name}
@@ -54,7 +54,7 @@ const SignupForm = () => {
           required
         />
         <input
-          placeholder='Enter Username'
+          placeholder='enter username'
           className='input'
           type="text"
           value={username}
@@ -62,7 +62,7 @@ const SignupForm = () => {
           required
         />
         <input
-          placeholder='Enter Email'
+          placeholder='enter email'
           className='input'
           type="email"
           value={email}
@@ -70,7 +70,7 @@ const SignupForm = () => {
           required
         />
         <input
-          placeholder='Enter Password'
+          placeholder='enter password'
           className='input'
           type="password"
           value={password}
@@ -78,14 +78,14 @@ const SignupForm = () => {
           required
         />
         <input
-          placeholder='Confirm Password'
+          placeholder='confirm password'
           className='input'
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit" className='submit'>Sign Up</button>
+        <button type="submit" className='submit'>sign up</button>
       </div>
     </form>
   )

@@ -6,24 +6,24 @@ import {useHistory} from 'react-router-dom'
 
 const ProfileButton = ({user}) => {
   const dispatch = useDispatch()
-  const [showMenu, setShowMenu] = useState(false)
+  // const [showMenu, setShowMenu] = useState(false)
   const history = useHistory()
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true)
-  }
-  useEffect(() => {
-    if (!showMenu) return 
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true)
+  // }
+  // useEffect(() => {
+  //   if (!showMenu) return 
 
-    const closeMenu = () => {
-      setShowMenu(false)
-    };
+  //   const closeMenu = () => {
+  //     setShowMenu(false)
+  //   };
 
-    document.addEventListener('click', closeMenu)
+  //   document.addEventListener('click', closeMenu)
 
-    return () => document.removeEventListener('click', closeMenu)
-  }, [showMenu])
+  //   return () => document.removeEventListener('click', closeMenu)
+  // }, [showMenu])
 
   const logout = (e) => {
     e.preventDefault();
@@ -33,17 +33,11 @@ const ProfileButton = ({user}) => {
 
     return (
     <>
-      <button onClick={openMenu}>
+      {/* <button onClick={openMenu}>
         <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+      </button> */}
+      {user && (
+        <a onClick={logout} className='nav-span'>log out</a>
       )}
     </>
   );
