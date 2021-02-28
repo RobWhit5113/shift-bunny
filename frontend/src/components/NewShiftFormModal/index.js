@@ -8,7 +8,7 @@ function NewShiftFormModal() {
 
   return (
   <>
-    <span className='span' onClick={() => setShowModal(true)}>Create a New Shift!</span>
+    <h2 className='new-shift-btn' onClick={() => setShowModal(true)}>create a new shift!</h2>
     {showModal && (
       <Modal onClose={() => setShowModal(false)}>
         <NewShiftForm showModal={showModal}

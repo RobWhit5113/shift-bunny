@@ -1,0 +1,57 @@
+/* .sign{
+    padding-top: 35px;
+    color: #12232E;
+    font-family: 'Signika Negative', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    text-align: center;
+}
+
+.input{
+    width: 76%;
+    color: #12232E;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: #f8f8ff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid #203647;
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 10px;
+    align-items: center;
+    font-family: 'Signika Negative', sans-serif;
+}
+*/
+.submit-create {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #f8f8ff;
+    background: linear-gradient(to right, #12232E , #4DA8DA);
+    border: 2px solid #203647;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Signika Negative', sans-serif;
+    margin-left: 28%;
+    margin-bottom: 5px;
+    margin-top: auto;
+    font-size: 14px;
+    box-shadow: 0 0 20px 1px rgb(0 0 0 / 4%);
+}
+
+.submit-create:hover{
+  color: #12232E
+} 

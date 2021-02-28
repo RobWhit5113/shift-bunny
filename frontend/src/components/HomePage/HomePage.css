@@ -1,8 +1,15 @@
 .big3Components{
   display: flex;
-  border-right: solid black;
-  border-left: solid black;
   justify-content: space-between;
-  
+  align-items: center;
+  padding: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h2:hover {
+  color: #007CC7;
 }
 

@@ -14,7 +14,7 @@ function HomePage() {
 
   return (
   <>
-    <h1>{`${sessionUser.username}'s dashboard`}</h1>
+    <h2>{`${sessionUser.username}'s dashboard`}</h2>
     <div className='big3Components'>
       <NewShiftFormModal />
       <UpcomingShiftsModals />
