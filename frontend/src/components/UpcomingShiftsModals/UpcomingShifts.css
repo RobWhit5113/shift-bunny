@@ -1,17 +1,22 @@
 .upcoming_shifts{
-  border: solid black;
+  /* border: solid black; */
   display: grid;
+  width: 400px;
 
 }
 
-.upcoming-title{
-  text-align: center;
-}
+/* .upcoming-title{
+  
+} */
 
 .shift-tiles{
-  border: solid black;
+  border: solid #007CC7;
   padding: 5px;
   display: grid;
+  background-color:#f8f8ff ;
+  color: #12232E;
+  border-radius: 5px;
+  text-align: center;
   
 }
 

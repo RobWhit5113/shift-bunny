@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {editShift, deleteOneShift, getAllShifts, markComplete} from '../../store/shifts'
 import {useHistory, Redirect} from 'react-router-dom'
+import './CurrentShift.css'
 
 function CurrentShifter({id}){
   const shift = useSelector((state) => state?.shift[id])
@@ -15,7 +16,9 @@ function CurrentShifter({id}){
 
   return (
     worker &&
-    <p>Current Shifter: {`${worker.first_name} ${worker.last_name}` } </p>
+    <div className='current-shifter'>
+      <p>Current Shifter: {`${worker.first_name} ${worker.last_name}` } </p>
+    </div>
   )
 }
 

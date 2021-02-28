@@ -3,8 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {editShift, deleteOneShift, getAllShifts, markComplete} from '../../store/shifts'
 import {useHistory, Redirect} from 'react-router-dom'
 import {getRelWorkers} from '../../store/workers'
-import './UpcomingShifts.css'
 import CurrentShifter from './CurrentShifter'
+import './EditShiftForm.css'
 
 
 
@@ -69,78 +69,89 @@ if(!shift){
   return (
   workers &&
     <form onSubmit={handleSubmit}>
-      <input 
-        type='text'
-        placeholder='Name of Event'
-        required
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      <select  
-        type='select'
-        placeholder='Type of Shift'
-        required
-        value={shiftType}
-        onChange={e => setShiftType(e.target.value)}>
-          {types && types.map(type => (
-            <option key={type.id}>{type.type}</option>
-          ))}
-        </select>     
-      <input 
-        type='text'
-        placeholder='Address of Shift'
-        required
-        value={location}
-        onChange={e => setLocation(e.target.value)}
-      />
-      <input 
-        type='text'
-        placeholder='Duration of Shift (in Minutes)'
-        required
-        value={duration}
-        onChange={e => setDuration(e.target.value)}
-      />
-      <input 
-        type='text'
-        placeholder='Start Date of Shift'
-        required
-        value={startDate}
-        onChange={e => setStartDate(e.target.value)}
-      />
-      <input 
-        type='text'
-        placeholder='Maximum you want to pay per hour'
-        required
-        value={cost}
-        onChange={e => setCost(e.target.value)}
-      />
-      <textarea 
-        type='text'
-        placeholder='Tell us a bit more about the Shift'
-        required
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-      />
-
-      <select  
-        type='select'
-        placeholder='Worker'
-        required
-        value={worker}
-        onChange={e => setWorker(e.target.value)}>
-          {workersArr && workersArr.map(worker => (
-            <option key={worker.id}>{worker.id} - {worker.shift_type} - {worker.first_name} {worker.last_name}</option>
-          ))}
-        </select> 
+      <div className='sign'>
+        <input 
+          type='text'
+          placeholder='Name of Event'
+          className='input'
+          required
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
+        <select  
+          type='select'
+          placeholder='Type of Shift'
+          className='input'
+          required
+          value={shiftType}
+          onChange={e => setShiftType(e.target.value)}>
+            {types && types.map(type => (
+              <option key={type.id}>{type.type}</option>
+            ))}
+          </select>     
+        <input 
+          type='text'
+          placeholder='Address of Shift'
+          className='input'
+          required
+          value={location}
+          onChange={e => setLocation(e.target.value)}
+        />
+        <input 
+          type='text'
+          placeholder='Duration of Shift (in Minutes)'
+          className='input'
+          required
+          value={duration}
+          onChange={e => setDuration(e.target.value)}
+        />
+        <input 
+          type='text'
+          placeholder='Start Date of Shift'
+          className='input'
+          required
+          value={startDate}
+          onChange={e => setStartDate(e.target.value)}
+        />
+        <input 
+          type='text'
+          placeholder='Maximum you want to pay per hour'
+          className='input'
+          required
+          value={cost}
+          onChange={e => setCost(e.target.value)}
+        />
+        <textarea 
+          type='text'
+          placeholder='Tell us a bit more about the Shift'
+          className='input'
+          required
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
         {shift &&
-        
         <CurrentShifter worker={worker}
                         id={id}/>
                         }
-      <button type='click' onClick={handleDelete}> Cancel Shift </button>  
-      <button type='click' onClick={handleComplete} className={(completed ? 'selected' : '')}>Mark completed</button> 
-      {/* <button type='click' onClick={findShifters}>Find A New Shifter!</button> */}
-      <button type='submit'>Save Changes Shift!</button>
+        <select  
+          type='select'
+          placeholder='Worker'
+          className='input'
+          required
+          value={''}
+          onChange={e => setWorker(e.target.value)}>
+            <option value='' disabled>- pick new a shifter! -</option>
+            {workersArr && workersArr.map(worker => (
+              <option key={worker.id}>{worker.id} - {worker.shift_type} - {worker.first_name} {worker.last_name}</option>
+              ))}
+          </select>   
+        <div className='edit-btns'>
+          <button type='click' onClick={handleComplete} className={(completed ? 'selected' : '')} className='submit-create'>Mark completed</button> 
+          <button type='click' onClick={handleDelete} className='submit-create'> Cancel Shift </button>  
+          {/* <button type='click' onClick={findShifters}>Find A New Shifter!</button> */}
+          <button type='submit' className='submit-create'>Save Changes Shift!</button>
+        </div>  
+      </div>
     </form>
   )
 }

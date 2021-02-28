@@ -26,15 +26,14 @@
     outline: none;
     box-sizing: border-box;
     border: 2px solid #203647;
-    margin-bottom: 50px;
     margin-left: 46px;
     text-align: center;
-    margin-bottom: 27px;
+    margin-bottom: 10px;
     align-items: center;
     font-family: 'Signika Negative', sans-serif;
 }
 
-.submit {
+.submit-create {
     cursor: pointer;
     border-radius: 5em;
     color: #f8f8ff;

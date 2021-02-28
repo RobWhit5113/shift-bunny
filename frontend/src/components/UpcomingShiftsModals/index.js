@@ -43,14 +43,12 @@ function UpcomingShiftsModals() {
         setShowModal(true)
       }} 
         
-        key={shift.id}>
-        {shift.name} 
-        </div>
+        key={shift.id}>{`${shift.name} - ${shift.start_date} `}</div>
     ))}
   return (
     <>
       <div className='upcoming_shifts'>
-        <h2 className='upcoming-title'>Upcoming Shifts:</h2>
+        <h2 className='upcoming-title'>upcoming shifts:</h2>
           {allShifts}
             {showModal && (
               <Modal onClose={() => setShowModal(false)}>
