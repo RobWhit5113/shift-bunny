@@ -6,7 +6,7 @@
     <img src="/frontend/public/images/shift-bunny-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">shift-bunny</h3>
+  <h2 align="center">shift-bunny</h2>
 
   <p align="center">
     shift-bunny is an application that allows bar managers, caterers, and individuals to book last minute talent for an event that they may be understaffed. Users can sign up, create shifts, and pick an available shifter that they would like to work their shift.
@@ -25,5 +25,11 @@
 
 <!-- Need to Add GETTING STARTED -->
 
-### Features
-## Creating an shift
+## Features
+### Shifts
+<!-- Add functionality --> 
+### Reviews
+<!-- Add functionality -->
+<!-- Add Payments --> 
+
+
