@@ -10,8 +10,7 @@ import { Modal } from '../../context/Modal'
 
 function UpcomingShiftsModals() {
   let shiftsVals
-  // let upcoming
-  // const today = new Date()
+  let openShifts
   const [showModal, setShowModal] = useState(false)
   const [id, setId] = useState('')
 
@@ -19,14 +18,11 @@ function UpcomingShiftsModals() {
   let shifts = useSelector(state => state.shift)
   if (shifts){
   shiftsVals = Object.values(shifts)
-  // upcoming = shiftsVals.filter(shift => shift.start_date > today)
-  
-  // let days = []
-  // let times = []
-  // let dates = shiftsVals.map(shift => (shift.start_date))
-  // dates.forEach(date => days.push(date.split('T')[0]))
-  // console.log(times)
   }
+  
+  openShifts = shiftsVals.filter(shift => shift.completed === false)
+  
+  
 
   useEffect(() => {
     shifts = dispatch(sessionActions.getAllShifts())
@@ -35,7 +31,7 @@ function UpcomingShiftsModals() {
   
   let allShifts 
   if(shiftsVals?.length > 0){
-    allShifts = shiftsVals.map((shift) => (
+    allShifts = openShifts.map((shift) => (
       <div className='shift-tiles' id={shift.id} onClick={async (e) => {
         setId(e.target.id)
         await dispatch(getAllWorkers())

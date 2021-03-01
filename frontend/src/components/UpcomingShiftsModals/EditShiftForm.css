@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
 
-
+.selected {
+  background-color: #12232E;
 }

@@ -110,10 +110,9 @@ router.put('/:id', asyncHandler(async (req,res) => {
       completed 
    } = req.body
 
-   let worker = worker_id
-   if (!Number.isInteger(worker)) {
-      worker = +worker_id.split('-')[0]
-   }
+   
+   let worker = worker_id.id
+
 
    
    let newShiftTypeId = 0

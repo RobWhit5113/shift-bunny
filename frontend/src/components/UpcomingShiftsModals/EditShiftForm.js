@@ -138,7 +138,7 @@ if(!shift){
           placeholder='Worker'
           className='input'
           required
-          value={''}
+          value={worker}
           onChange={e => setWorker(e.target.value)}>
             <option value='' disabled>- pick new a shifter! -</option>
             {workersArr && workersArr.map(worker => (
