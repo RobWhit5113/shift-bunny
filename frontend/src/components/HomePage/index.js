@@ -1,22 +1,28 @@
 import {useSelector} from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import {Redirect, useHistory} from 'react-router-dom'
 import UpcomingShiftsModals from '../UpcomingShiftsModals'
-import NewShiftFormModal from '../NewShiftFormModal'
 import RecentShifters from '../RecentShifters'
 import './HomePage.css'
 
 function HomePage() {
+  const history = useHistory()
   const sessionUser = useSelector((state) => state.session.user)
   
   if(!sessionUser){ 
     return <Redirect to='/'/>
+    
+  }
+
+  const newFormhandle = e => {
+    e.preventDefault()
+    history.push('/newShiftForm')
   }
 
   return (
   <>
     <h2>{`${sessionUser.username}'s dashboard`}</h2>
     <div className='big3Components'>
-      <NewShiftFormModal />
+      <button onClick={newFormhandle}>create a new shift</button>
       <UpcomingShiftsModals />
       <RecentShifters />
     </div>

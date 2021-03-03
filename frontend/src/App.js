@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import SplashPage from './components/SplashPage'
+import NewShiftForm from "./components/NewShiftForm/NewShiftForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path='/home'>
             <HomePage />
+          </Route>
+          <Route path='/newShiftForm'>
+            <NewShiftForm />
           </Route>
         </Switch>
       )}

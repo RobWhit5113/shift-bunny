@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {createNewShift} from '../../store/shifts'
 import {getAllTypes} from '../../store/types'
 import {getAllWorkers, getRelWorkers} from '../../store/workers'
-import {useHistory} from 'react-router-dom'
+
 import './NewShiftForm.css'
 
 const NewShiftForm = ({showModal, setShowModal}) => {
