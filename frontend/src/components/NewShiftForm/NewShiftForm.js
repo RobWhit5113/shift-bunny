@@ -54,7 +54,7 @@ function NewShiftForm(){
       prevStep={prevStep}
       />)  
     case 4:
-      return (<h1>Success</h1>) 
+      return (<CreationSuccess />) 
   }
 }
 

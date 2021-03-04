@@ -41,7 +41,9 @@ const workersReducer = (state= {}, action) => {
       return newState
     case GET_REL_WORKERS:
       newState = JSON.parse(JSON.stringify(state))
-      newState = action.payload
+      action.payload.relWorkers.forEach(worker => {
+        newState[worker.id] = worker
+      })
       return newState
     default:
       return state

@@ -8,7 +8,8 @@ function FormPickShifter ({
   prevStep
 }){
 
-  const workers = useSelector((state) => state.workers.relWorkers)
+  const workers = useSelector((state) => state.workers)
+  const workersVals = Object.values(workers)
 
   const nextPage = e => {
     e.preventDefault()
@@ -26,7 +27,7 @@ function FormPickShifter ({
   return (
    <> 
     <div className='worker-tiles'>
-      {workers && workers.map(worker => (
+      {workersVals && workersVals.map((worker) => (
         <div key={worker.id} id={worker.id} onClick={chooseWorker}>{worker.first_name} {worker.last_name}</div>
       ))}
     </div>

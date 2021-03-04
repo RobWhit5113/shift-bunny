@@ -8,7 +8,7 @@ function FormConfirm ({
 }){
   const dispatch = useDispatch(0)
   const sessionUser = useSelector((state) => state.session.user)
-  const workers = useSelector((state) => state.workers.relWorkers)
+  const workers = useSelector((state) => state.workers)
 
   // const nextPage = e => {
   //   e.preventDefault()
@@ -92,7 +92,7 @@ function FormConfirm ({
       type='text'
       className='input'
       required
-      value={workers[0].first_name}
+      value={`${workers[values.worker].first_name} ${workers[values.worker].last_name}`}
       
     />
 
