@@ -23,8 +23,8 @@ export const getAllWorkers = () => async(dispatch) => {
   dispatch(getWorkers(workers))
 }
 
-export const getRelWorkers = (shiftType) => async(dispatch) => {
-  const response = await fetch(`/api/workers/${shiftType}`)
+export const getRelWorkers = (shift_type_id) => async(dispatch) => {
+  const response = await fetch(`/api/workers/${shift_type_id}`)
   const relWorkers = await response.json()
   dispatch(getSomeWorkers(relWorkers))
 }

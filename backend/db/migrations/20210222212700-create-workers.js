@@ -18,10 +18,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model: "Shift_types"}
       },
-        shift_type: {
-        allowNull: false,
-        type: Sequelize.ENUM(['Bartender', 'Server', 'Cleaner'])
-      },
       cost: {
         allowNull: false,
         type: Sequelize.INTEGER

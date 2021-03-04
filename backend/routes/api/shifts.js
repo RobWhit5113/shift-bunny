@@ -48,46 +48,7 @@ router.delete('/:id', restoreUser, asyncHandler(async(req,res) => {
 
 // create new shift for the user
 router.post('/', asyncHandler(async(req,res) => {
-   const {
-      name,
-      user_id,
-      worker_id,
-      shift_type_id,
-      shift_Type,
-      start_date,
-      location,
-      cost,
-      duration,
-      description,
-      completed 
-   } = req.body
-
-   let worker = +worker_id.split('-')[0]
-
-   
-   let newShiftTypeId = 0
-   if (shift_Type === 'Bartender'){
-      newShiftTypeId = 1
-   }else if (shift_Type === 'Server') {
-      newShiftTypeId = 2
-   } else if (shift_Type === 'Cleaner'){
-      newShiftTypeId = 3
-   }
-
-
-   const newShift = await Shift.create({
-      name,
-      user_id, 
-      worker_id: worker,
-      shift_type_id: newShiftTypeId,
-      shift_type: shift_Type,
-      start_date,
-      location,
-      cost,
-      duration,
-      description,
-      completed
-   })
+   const newShift = await Shift.create(req.body)
    return res.json({newShift})
 }))
 
@@ -95,49 +56,9 @@ router.post('/', asyncHandler(async(req,res) => {
 //update a shift
 
 router.put('/:id', asyncHandler(async (req,res) => {
-   const {
-      id,
-      name,
-      user_id,
-      worker_id,
-      shift_type_id,
-      shift_Type,
-      start_date,
-      location,
-      duration,
-      cost,
-      description,
-      completed 
-   } = req.body
-
-   
-   let worker = worker_id.id
-
-
-   
-   let newShiftTypeId = 0
-   if (shift_Type === 'Bartender'){
-      newShiftTypeId = 1
-   }else if (shift_Type === 'Server') {
-      newShiftTypeId = 2
-   } else if (shift_Type === 'Cleaner'){
-      newShiftTypeId = 3
-   }
    let shift = await Shift.findByPk(id)
    
-   shift = await shift.update({
-      name,
-      user_id, 
-      worker_id: worker,
-      shift_type_id: newShiftTypeId,
-      shift_type: shift_Type,
-      start_date,
-      location,
-      duration,
-      cost,
-      description,
-      completed
-   })
+   shift = await shift.update(req.body)
    
    
    const shifts = await Shift.findAll({

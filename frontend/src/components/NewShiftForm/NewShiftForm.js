@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import {useDispatch} from 'react-redux'
+import {getAllTypes} from '../../store/types'
 import FormShiftDetails from './FormShiftDetails'
 import FormPickShifter from './FormPickShifter'
 import FormConfirm from './FormConfirm'
@@ -6,12 +8,18 @@ import CreationSuccess from './CreationSuccess'
 
 
 function NewShiftForm(){
+  const dispatch = useDispatch()
 
   const [step, setStep] = useState(1)
+  const[name, setName] = useState('')
+  const [shift_type_id, setShiftTypeId] = useState('')
+  const[start_date, setStartDate] = useState('')
+  const[start_time, setStartTime] = useState('')
   const [location, setLocation] = useState('')
-  const [pay, setPay] = useState('')
+  const [cost, setCost] = useState('')
   const [duration, setDuration] = useState('')
   const [description, setDescription] = useState('')
+  const [worker, setWorker] = useState('')
 
   //move to the next step
   const nextStep = () => {
@@ -21,22 +29,20 @@ function NewShiftForm(){
     setStep(step-1)
   }
 
-  const values = {step, location, pay, duration, description}
+  const values = {step, location, cost, duration, description, name, shift_type_id, start_date, start_time, worker}
+  const handlers = {setLocation, setCost, setDuration, setDescription, setName, setShiftTypeId, setStartDate, setStartTime, setWorker}
 
   switch(step){
     case 1:
       return (<FormShiftDetails
-      setLocation={setLocation}
-      setPay={setPay}
-
+      handlers={handlers}
       values={values}
       nextStep={nextStep}
       prevStep={prevStep}
       />)
     case 2: 
       return (<FormPickShifter 
-      setDuration={setDuration}
-      setDescription={setDescription}
+      handlers={handlers}
       values={values}
       nextStep={nextStep}
       prevStep={prevStep}

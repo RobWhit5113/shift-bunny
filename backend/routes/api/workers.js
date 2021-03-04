@@ -9,10 +9,10 @@ router.get('/', asyncHandler(async(req,res) => {
    return res.json({workers})
 }))
 
-router.get('/:shiftType', asyncHandler(async(req,res) => {
-  const shift_type = req.params.shiftType
+router.get('/:shift_type_id', asyncHandler(async(req,res) => {
+  const shift_type_id = req.params.shift_type_id
 
-  const relWorkers = await Worker.findAll({ where: {shift_type}})
+  const relWorkers = await Worker.findAll({ where: {shift_type_id}})
   // console.log(res.json(relWorkers))
   return res.json({relWorkers})
 }))

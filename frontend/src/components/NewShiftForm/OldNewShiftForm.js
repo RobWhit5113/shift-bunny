@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {createNewShift} from '../../store/shifts'
 import {getAllTypes} from '../../store/types'
-import {getAllWorkers, getRelWorkers} from '../../store/workers'
+import {getRelWorkers} from '../../store/workers'
 
 import './NewShiftForm.css'
 

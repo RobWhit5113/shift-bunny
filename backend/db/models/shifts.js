@@ -18,16 +18,13 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         references: {model: "Shift_types"}
       },
-      shift_type: {
-        allowNull: false,
-        type: DataTypes.ENUM(['Bartender', 'Server', 'Cleaner'])
-      },
       start_date: {
         allowNull: false,
-        type: DataTypes.DATEONLY,
-        // get: function() {
-        //   return moment(this.getDataValue('start_date')).format('MM-DD-YYYY')
-        // }
+        type: DataTypes.STRING,
+      },
+      start_time:{
+        allowNull: false,
+        type: DataTypes.TIME,
       },
       duration: {
         allowNull: false,
@@ -46,7 +43,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT
       },
       completed: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
       },
   },
    {});

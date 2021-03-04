@@ -1,13 +1,14 @@
-
+import {useSelector} from 'react-redux'
 
 
 function FormPickShifter ({
-  setDuration, 
-  setDescription,  
+  handlers,  
   values, 
   nextStep,
   prevStep
 }){
+
+  const workers = useSelector((state) => state.workers.relWorkers)
 
   const nextPage = e => {
     e.preventDefault()
@@ -17,25 +18,18 @@ function FormPickShifter ({
     e.preventDefault()
     prevStep()
   }
+  const chooseWorker = e => {
+    e.preventDefault()
+    handlers.setWorker(e.target.id)
+  }
 
   return (
    <> 
-    <input 
-      type='text'
-      placeholder='Duration of the Shift'
-      className='input'
-      required
-      value={values.duration}
-      onChange={e => setDuration(e.target.value)}
-    />
-    <textarea 
-      type='text'
-      placeholder='Give us a short description'
-      className='input'
-      required
-      value={values.descripiton}
-      onChange={e => setDescription(e.target.value)}
-    />
+    <div className='worker-tiles'>
+      {workers && workers.map(worker => (
+        <div key={worker.id} id={worker.id} onClick={chooseWorker}>{worker.first_name} {worker.last_name}</div>
+      ))}
+    </div>
     <button onClick={nextPage}> Continue </button>
     <button onClick={prevPage}> Back </button>
    </> 
