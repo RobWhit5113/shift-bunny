@@ -45,6 +45,7 @@ function FormConfirm ({
       className='input'
       required
       value={values.name}
+      readOnly={true}
       
     />
 
@@ -53,47 +54,49 @@ function FormConfirm ({
       className='input'
       required
       value={values.cost}
-      
+      readOnly={true}
     />
     <input 
       type='text'
       className='input'
       required
       value={values.start_date}
+      readOnly={true}
     />
     <input 
       type='text'
       className='input'
       required
       value={values.start_time}
+      readOnly={true}
     />
     <input 
       type='text'
       className='input'
       required
       value={values.location}
-      
+      readOnly={true}
     />
     <input 
       type='text'
       className='input'
       required
       value={values.duration}
-      
+      readOnly={true}
     />
     <textarea 
       type='text'
       className='input'
       required
       value={values.description}
-      
+      readOnly={true}
     />
     <input 
       type='text'
       className='input'
       required
       value={`${workers[values.worker].first_name} ${workers[values.worker].last_name}`}
-      
+      readOnly={true}
     />
 
     <button onClick={handleSubmit}> Create the new shift! </button>
