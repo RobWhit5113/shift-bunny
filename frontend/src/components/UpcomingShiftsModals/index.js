@@ -11,6 +11,7 @@ import { Modal } from '../../context/Modal'
 function UpcomingShiftsModals() {
   let shiftsVals
   let openShifts
+  let futureShifts
   const [showModal, setShowModal] = useState(false)
   const [id, setId] = useState('')
 
@@ -20,7 +21,9 @@ function UpcomingShiftsModals() {
   shiftsVals = Object.values(shifts)
   }
   
-  openShifts = shiftsVals.filter(shift => shift.completed === false)
+  futureShifts = shiftsVals.filter(shift => new Date(shift.start_date) > new Date())
+  console.log(futureShifts)
+  openShifts = futureShifts.filter(shift => shift.completed === false)
   
   
 
