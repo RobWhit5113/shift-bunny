@@ -2,6 +2,7 @@ import {useSelector} from 'react-redux'
 import {Redirect, useHistory} from 'react-router-dom'
 import UpcomingShiftsModals from '../UpcomingShiftsModals'
 import RecentShifters from '../RecentShifters'
+import Button from '@material-ui/core/Button';
 import './HomePage.css'
 
 function HomePage() {
@@ -22,7 +23,7 @@ function HomePage() {
   <>
     <h2>{`${sessionUser.username}'s dashboard`}</h2>
     <div className='big3Components'>
-      <button onClick={newFormhandle}>create a new shift</button>
+      <Button variant="contained" color="primary" onClick={newFormhandle}>create a new shift</Button>
       <UpcomingShiftsModals />
       <RecentShifters />
     </div>
