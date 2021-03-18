@@ -95,8 +95,3 @@ const shiftsReducer = (state = {}, action) => {
 }
 export default shiftsReducer
 
-      // newState = JSON.parse(JSON.stringify(state))
-      // action.payload.shifts.forEach(shift => {
-      //   newState[shift.id] = shift
-      // })
-      // return newState

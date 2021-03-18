@@ -2,7 +2,7 @@
 
 function RecentShifters() {
   return (
-    <h2>your recent shifters</h2>
+    <h2>Hello Mate</h2>
   )
 }
 

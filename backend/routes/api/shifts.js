@@ -18,17 +18,9 @@ router.get('/', restoreUser, asyncHandler(async(req,res) => {
         user_id: user.id,
        },
       })
-      console.log('>>>>>>>>>>>>>>>>>>>>>',shifts)
       return res.json({shifts})  
 
    }))
-
-// get one shift 
-// router.get('/:id', asyncHandler(async(req,res) => {
-//    const shiftId = req.params.id
-//    const shift = await Shift.findByPk(shiftId)
-//    return res.json({shift})
-// }))
 
 router.delete('/:id', restoreUser, asyncHandler(async(req,res) => {
    const {user} = req

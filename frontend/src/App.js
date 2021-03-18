@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import SplashPage from './components/SplashPage'
 import NewShiftForm from "./components/NewShiftForm/NewShiftForm";
+import RecentShifters from "./components/RecentShifters";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path='/newShiftForm'>
             <NewShiftForm />
+          </Route>
+          <Route path='/recentShifters'>
+            <RecentShifters/>
           </Route>
         </Switch>
       )}

@@ -6,6 +6,7 @@ import * as sessionActions from './session'; //part of csrf test
 import shiftsReducer from './shifts';
 import typesReducer from './types'
 import workersReducer from './workers';
+import reviewsReducer from './reviews';
 
 
 
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   shift: shiftsReducer,
   types: typesReducer,
-  workers: workersReducer
+  workers: workersReducer,
+  reviews: reviewsReducer
 })
 
 let enhancer;
