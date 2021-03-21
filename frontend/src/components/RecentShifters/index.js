@@ -1,8 +1,17 @@
-
+import {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 
 function RecentShifters() {
+  const reviews = useSelector((state) => state?.reviews)
+  const workers = useSelector((state) => state?.workers)
+
+  
+  
   return (
-    <h2>Hello Mate</h2>
+    <div>
+      
+    </div>
   )
 }
 
